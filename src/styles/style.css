@@ -1,0 +1,5 @@
+body {
+    border-radius: 25px;
+    background: green url(../../public/images/grama.png) no-repeat center;
+    background-size: cover;
+}
