@@ -1,10 +1,12 @@
+import { Header } from "../components/header";
+import { MainContainer } from "../components/mainContainer";
 import { Pokedex } from "../components/pokedex";
-import { MainContainer } from "../styles/mainContainer";
 
 export const Home = () => {
   return (
     <MainContainer>
-      <Pokedex />
+      <Header/>
+      <Pokedex/>
     </MainContainer>
   );
 };

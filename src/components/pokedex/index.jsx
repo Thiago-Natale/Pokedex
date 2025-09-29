@@ -1,10 +1,19 @@
 import { useEffect, useState } from "react";
-import { PokeList } from "./pokeList";
-import { PokeScreen } from "./pokeScreen";
+import { PokeList } from "./pokedexRightSide/pokelist";
+import { PokeScreen } from "./pokedexLeftSide/screen";
+import {
+  PokedexLeftSide,
+  PokedexLeftSideContainer,
+} from "./pokedexLeftSide/style";
+import {
+  PokedexRightSide,
+  PokedexRightSideContainer,
+} from "./pokedexRightSide/style";
+import { PokedexContainer } from "./style";
 
-async function getPokemonList() {
+async function getPokemonList(offSet) {
   const response = await fetch(
-    "https://pokeapi.co/api/v2/pokemon?limit=21&offset=0"
+    `https://pokeapi.co/api/v2/pokemon?limit=12&offset=${offSet}`
   );
   return await response.json();
 }
@@ -15,35 +24,54 @@ async function getPokemonDetails(url) {
 }
 
 export const Pokedex = () => {
-  const [pokeList, setPokeListAndInfos] = useState([]);
+  const [pokeList, setPokeList] = useState([]);
+  const [offSet, setOffSet] = useState(0);
+  const [selectedPokemon, setSelectedPokemon] = useState(null);
 
   useEffect(() => {
-    async function fetchData() {
-      const pokeListData = await getPokemonList();
-      const pokeList = pokeListData.results;
+    fetchData(offSet);
+  }, [offSet]);
 
-      const pokeListAndInfos = await Promise.all(
-        pokeList.map(async (pokemon, index) => {
-          const response = await getPokemonDetails(pokemon.url);
-          return {
-            id: index,
-            name: pokemon.name,
-            static_image: response.sprites.front_default,
-            gif: response.sprites.other.showdown.front_default,
-            abilities: response.abilities,
-            moves: response.moves,
-          };
-        })
-      );
-      console.log(pokeListAndInfos);
-      setPokeListAndInfos(pokeListAndInfos);
-    }
-    fetchData();
-  }, []);
+  async function fetchData(offSet) {
+    const pokeListData = await getPokemonList(offSet);
+    const pokeListResults = pokeListData.results;
+
+    const pokeListAndInfos = await Promise.all(
+      pokeListResults.map(async (pokemon) => {
+        const response = await getPokemonDetails(pokemon.url);
+        return {
+          name: pokemon.name,
+          url: pokemon.url,
+          static_image: response.sprites.front_default,
+          gif: response.sprites.other.showdown.front_default,
+        };
+      })
+    );
+    setPokeList((prev) => [...prev, ...pokeListAndInfos]);
+    console.log(pokeList);
+  }
+
+  async function addPokemonsOnList() {
+    setOffSet((prev) => prev + 12);
+  }
+
   return (
-    <>
-      <PokeScreen pokeList={pokeList}/>
-      <PokeList pokeList={pokeList} />
-    </>
+    <PokedexContainer>
+      <PokedexLeftSide>
+        <PokedexLeftSideContainer>
+          <PokeScreen selectedPokemon={selectedPokemon} />
+        </PokedexLeftSideContainer>
+      </PokedexLeftSide>
+
+      <PokedexRightSide>
+        <PokedexRightSideContainer>
+          <PokeList
+            pokeList={pokeList}
+            addPokemonsOnList={addPokemonsOnList}
+            selectPokemon={setSelectedPokemon}
+          />
+        </PokedexRightSideContainer>
+      </PokedexRightSide>
+    </PokedexContainer>
   );
 };
