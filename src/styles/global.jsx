@@ -16,5 +16,6 @@ export const GlobalStyle = createGlobalStyle`
     appearence: none;
     text-decoration: none;
     border:none;
+    transition: 0.4s ease;
 }
 `;

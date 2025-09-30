@@ -1,6 +1,9 @@
+import { PokemonContext } from "../../../contexts/pokemonContext/PokemonContext";
 import { Screen } from "./style";
+import { useContext } from "react";
 
-export const PokeScreen = ({ selectedPokemon }) => {
+export const PokeScreen = () => {
+  const { selectedPokemon } = useContext(PokemonContext);
   return (
     <Screen>
       {!selectedPokemon ? (

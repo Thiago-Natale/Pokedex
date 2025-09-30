@@ -1,26 +1,5 @@
 import styled from "styled-components";
 
-export const PokedexRightSide = styled.div`
-  background: transparent url(/images/pokedex-right.png) no-repeat center;
-  background-size: cover;
-  border-radius: 20px 35px 35px 20px;
-  height: 525px;
-  box-sizing: border-box;
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  width: 350px;
-`;
-
-export const PokedexRightSideContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-top: 110px;
-  margin-left: 30px;
-  height: 390px;
-`;
-
 export const PokemonsList = styled.ul`
   display: grid;
   grid-template-columns: repeat(2, 120px);
