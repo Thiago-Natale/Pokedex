@@ -2,6 +2,10 @@ import styled from "styled-components";
 
 export const PokedexContainer = styled.div`
   display: flex;
+
+  @media (max-width: 590px) {
+    flex-direction: column;
+  }
 `;
 
 export const PokedexLeftSide = styled.div`
@@ -14,6 +18,10 @@ export const PokedexLeftSide = styled.div`
   align-items: center;
   flex-direction: column;
   width: 350px;
+
+  @media (max-width: 590px) {
+    width: 100%;
+  }
 `;
 
 export const PokedexLeftSideContainer = styled.div`
@@ -22,7 +30,8 @@ export const PokedexLeftSideContainer = styled.div`
   height: 360px;
   margin-top: 140px;
   margin-right: 30px;
-  justify-content:center;
+  align-items: center;
+  flex-direction: column;
 `;
 
 export const PokedexRightSide = styled.div`
