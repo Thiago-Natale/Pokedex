@@ -4,11 +4,12 @@ import { Details } from "./details/details";
 import { TestComponent } from "../components/teste";
 
 export const AppRoutes = () => {
-  return (
+  
+return (
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Home/>} />
-        <Route path="/details" element={<Details/>}/>
+        <Route path="/details/:name" element={<Details/>}/>
         <Route path="/teste" element={<TestComponent/>}/>
       </Routes>
     </BrowserRouter>

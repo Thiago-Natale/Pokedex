@@ -6,6 +6,7 @@ const spin = keyframes`
 `;
 
 export const Loader = styled.div`
+  ${(props) => props.style}
   border: 6px solid #a7a7a7ff; 
   border-top: 6px solid orangered;
   border-radius: 50%;
@@ -21,5 +22,5 @@ export const LoadingContainer = styled.div`
   align-items: center;
   height: 100%; 
   width: 100%;
-  margin-left: 65px ;
+  margin: 0 auto;
 `;

@@ -1,5 +1,6 @@
 import { useContext, useEffect, useState } from "react";
 import {
+  AbilitieDetailContainer,
   GroupTitle,
   InfoGroup,
   InfoItem,
@@ -9,9 +10,9 @@ import {
 import { PokemonContext } from "../../../contexts/pokemonContext/PokemonContext";
 import { Loading } from "../../loading";
 import { ScanLineEffect } from "../../retro-effect";
-import { useNavigate } from "react-router";
+import { useNavigate, useParams } from "react-router";
 
-async function getPokemonDetails(url) {
+async function fetchApi(url) {
   const response = await fetch(url);
   return await response.json();
 }
@@ -25,23 +26,41 @@ export const PokeDetails = ({}) => {
       navigate("/");
       return;
     }
-    fetchData(selectedPokemon.url);
+    getPokemonData(selectedPokemon.url);
   }, [selectedPokemon]);
 
-  async function fetchData(selectedPokemon) {
-    const pokemonData = await getPokemonDetails(selectedPokemon);
+  async function getPokemonData(selectedPokemonUrl) {
+    const pokemonData = await fetchApi(selectedPokemonUrl);
+
+    const abilitiesWithDetails = await Promise.all(
+      pokemonData.abilities.map(async (abilitie) => {
+        const url = abilitie.ability.url;
+        const name = abilitie.ability.name;
+
+        const abilitieData = await fetchApi(url);
+
+        // pega a descrição em inglês
+        const abilitieDescription = abilitieData.effect_entries.find(
+          (entry) => entry.language.name === "en"
+        );
+
+        return {
+          name,
+          description: abilitieDescription?.short_effect || "No description available.",
+        };
+      })
+    );
+
     const pokemonDetails = {
       moves: pokemonData.moves.map((move) => move.move.name),
-      abilities: pokemonData.abilities.map((abilitie) => abilitie.ability.name),
-      types: pokemonData.types.map((type) => type.type.name)
+      abilities: abilitiesWithDetails,
+      types: pokemonData.types.map((type) => type.type.name),
     };
 
     setPokemonInfos(pokemonDetails);
+    console.log(pokemonDetails)
   }
 
-  async function handleOpenAbilitie() {
-    
-  }
 
   return (
     <ScanLineEffect>
@@ -79,7 +98,10 @@ export const PokeDetails = ({}) => {
               </GroupTitle>
               <InfoItemList>
                 {pokemonInfos.abilities.map((abilitie, index) => (
-                  <InfoItem key={index}>{abilitie}</InfoItem>
+                  <InfoItem key={index}>
+                    {abilitie.name}
+                    <AbilitieDetailContainer>{abilitie.description}</AbilitieDetailContainer>
+                  </InfoItem>
                 ))}
               </InfoItemList>
             </InfoGroup>

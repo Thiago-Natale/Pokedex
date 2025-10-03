@@ -72,7 +72,7 @@ export const PokeScreen = () => {
               "
           label={<img src="/images/iconView.png" width="20px" />}
           onClick={() => {
-            navigate("/details");
+            navigate(`/details/${selectedPokemon.name}`);
           }}
         />
       </div>

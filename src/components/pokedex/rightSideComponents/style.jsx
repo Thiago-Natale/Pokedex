@@ -6,6 +6,7 @@ export const PokemonsList = styled.ul`
   box-sizing: border-box;
   overflow-y: scroll;
   height: 300px;
+  width: 254px
   border-radius: 20px 0 0 20px;
   outline: none;
   border: 2px solid #333;
@@ -121,3 +122,11 @@ export const InfoItem = styled.li`
   font-family: "Press Start 2P", monospace;
   border: 2px solid #afafafff;
 `;
+
+export const AbilitieDetailContainer = styled.div`
+  background: white;
+  margin: 6px 0;
+  padding: 10px;
+  border-radius: 0 0 5px 5px;
+  border: 2px solid #afafafff;
+`

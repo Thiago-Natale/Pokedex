@@ -1,9 +1,9 @@
 import { Loader, LoadingContainer } from "./style"
 
-export const Loading = () => {
+export const Loading = ({style}) => {
   return (
     <LoadingContainer>
-      <Loader/>
+      <Loader style={style}/>
     </LoadingContainer>
   );
 };

@@ -55,7 +55,7 @@ export const PokeList = () => {
       <ScanLineEffect>
         <PokemonsList>
           {pokeList.length === 0 ? (
-            <Loading />
+            <Loading/>
           ) : (
             pokeList.map((pokemon, index) => (
               <li key={index}>
