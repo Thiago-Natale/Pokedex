@@ -8,6 +8,9 @@ A Pokédex permite aos usuários navegar por uma lista de Pokémon e visualizar 
 
 O projeto conta com um design retrô e criativo, totalmente responsivo, e inclui um seletor de tema claro/escuro controlado pelos ícones de sol 🌞 e lua 🌙.
 
+## 📸 Prévia do Projeto
+![alt text](Animação.gif)
+
 ## 🚀 Funcionalidades
 
 - **Listagem paginada:** Visualização de Pokémon com um botão "Carregar Mais" para uma navegação paginada.
@@ -38,10 +41,13 @@ O projeto conta com um design retrô e criativo, totalmente responsivo, e inclui
 # 1. Clone o repositório
 git clone https://github.com/Thiago-Natale/Pokedex.git
 
-# 2. Vá para o diretorio clonado e instale as dependências
+# 2. Acesse o diretorio clonado
+cd Pokedex
+
+# 3. instale as dependências
 npm install
 
-# 3. Execute o projeto em modo de desenvolvimento
+# 4. Execute o projeto em modo de desenvolvimento
 npm run dev
 
-# 4. Abra seu navegador em: http://localhost:5173/
+# 5. Abra seu navegador em: http://localhost:5173/
