@@ -51,3 +51,11 @@ npm install
 npm run dev
 
 # 5. Abra seu navegador em: http://localhost:5173/
+```
+
+## 📈 Melhorias Futuras
+
+- **🔍 Busca por nome ou ID:** Permitir ao usuário pesquisar Pokémon específicos diretamente.
+- **Filtragem avançada:** Exibir Pokémons por tipo.
+- **Implementação de testes:** Implementar testes utilizando jest ou outra
+biblioteca para testes unitários.
