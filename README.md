@@ -56,6 +56,6 @@ npm run dev
 ## 📈 Melhorias Futuras
 
 - **🔍 Busca por nome ou ID:** Permitir ao usuário pesquisar Pokémon específicos diretamente.
-- **Filtragem avançada:** Exibir Pokémons por tipo.
-- **Implementação de testes:** Implementar testes utilizando jest ou outra
+- **🧩 Filtragem avançada:** Exibir Pokémons por tipo.
+- **⚡ Implementação de testes:** Implementar testes utilizando jest ou outra
 biblioteca para testes unitários.
