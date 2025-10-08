@@ -2,7 +2,7 @@ import { Header } from "../../components/header";
 import { MainContainer } from "../../components/mainContainer";
 import { PokedexLayout } from "../../components/pokedex";
 import { PokeScreen } from "../../components/pokedex/leftSideComponents";
-import { PokeList } from "../../components/pokedex/rightSideComponents/pokelist";
+import { PokeList } from "../../components/pokedex/rightSideComponents/pokelist/pokelist";
 
 export const Home = () => {
   return (

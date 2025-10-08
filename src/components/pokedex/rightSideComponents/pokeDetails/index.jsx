@@ -7,10 +7,10 @@ import {
   InfoItemList,
   PokemonsInfoList,
 } from "./style";
-import { PokemonContext } from "../../../contexts/pokemonContext/PokemonContext";
-import { Loading } from "../../loading";
-import { ScanLineEffect } from "../../retro-effect";
-import { useNavigate, useParams } from "react-router";
+import { PokemonContext } from "../../../../contexts/pokemonContext/PokemonContext";
+import { Loading } from "../../../loading";
+import { ScanLineEffect } from "../../../retro-effect";
+import { useNavigate } from "react-router";
 
 async function fetchApi(url) {
   const response = await fetch(url);

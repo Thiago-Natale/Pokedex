@@ -1,9 +1,9 @@
 import { PokemonsList, PokemonsItens } from "./style";
-import { PokeButton } from "../../pokeButton";
-import { PokemonContext } from "../../../contexts/pokemonContext/PokemonContext";
+import { PokeButton } from "../../../pokeButton";
+import { PokemonContext } from "../../../../contexts/pokemonContext/PokemonContext";
 import { useState, useEffect, useContext } from "react";
-import { Loading } from "../../loading";
-import { ScanLineEffect } from "../../retro-effect";
+import { Loading } from "../../../loading";
+import { ScanLineEffect } from "../../../retro-effect";
 
 async function getPokemonList(offSet) {
   const response = await fetch(

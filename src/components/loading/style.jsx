@@ -17,6 +17,7 @@ export const Loader = styled.div`
 `;
 
 export const LoadingContainer = styled.div`
+  position: absolute;
   display: flex;
   justify-content: center;
   align-items: center;

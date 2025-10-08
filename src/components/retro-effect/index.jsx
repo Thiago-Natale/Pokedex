@@ -8,8 +8,7 @@ const scanline = keyframes`
 
 export const ScanLineEffect = styled.div`
   position: relative;
-  overflow: hidden;
-  border-radius: 10px;
+  border-radius: 15px;
 
   &::before {
     content: "";
